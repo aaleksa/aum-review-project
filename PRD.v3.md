@@ -3,8 +3,51 @@
 ## Project Overview
 A financial advisor marketing automation platform with AI-powered content generation and compliance workflows, specifically designed for FINRA/SEC-regulated financial advisors.
 
+
 ---
 
+## Project File Architecture
+
+Рекомендована структура для TypeScript monorepo (Vercel + AWS Lambda):
+
+```
+aum-review-project/
+├─ backend/                # Serverless API (Vercel Functions)
+│  ├─ content.ts           # CRUD Content API
+│  ├─ approval.ts          # Approval workflow API
+│  ├─ stripe.ts            # Stripe webhook API
+│  ├─ sendgrid.ts          # Email triggers API
+│  ├─ linkedin.ts          # LinkedIn triggers API
+│  ├─ facebook.ts          # Facebook triggers API
+│  └─ audit.ts             # Audit trail API
+├─ lambda/                 # AWS Lambda heavy functions
+│  ├─ ai-content.ts        # AI content generation
+│  ├─ pdf-export.ts        # PDF/Word export
+│  ├─ linkedin-post.ts     # LinkedIn posting
+│  ├─ facebook-post.ts     # Facebook posting
+│  └─ fb-ad.ts             # Facebook Ad creation
+├─ src/                    # Frontend (React/Next.js)
+│  ├─ pages/
+│  ├─ components/
+│  └─ ...                  # UI, forms, dashboard, etc.
+├─ db/                     # DB schema/migrations
+│  └─ schema.sql
+├─ storage/                # S3 config/scripts (якщо потрібно)
+├─ vercel.json             # Vercel config (тільки backend/ як serverless)
+├─ package.json
+├─ README.md
+└─ ...existing code...
+```
+
+**Пояснення:**
+- backend/ — легкі API (Vercel), CRUD, workflow, інтеграції, webhooks
+- lambda/ — важкі функції (AWS Lambda): AI, PDF, соцмережі, Ads
+- src/ — фронтенд (React/Next.js)
+- db/ — схема бази даних, міграції
+- storage/ — скрипти для S3 (опціонально)
+- vercel.json — налаштування деплою (тільки backend/ як serverless)
+
+---
 ## 1 MVP Phase 1 — Features & Scope
 
 ### Core Platform Features

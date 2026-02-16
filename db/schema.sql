@@ -1,0 +1,3 @@
+-- PostgreSQL schema
+-- users, content, approvals, audit, api_tokens
+-- ...implementation...
