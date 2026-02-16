@@ -1,5 +1,6 @@
 -- Основні таблиці для платформи (зовнішня база Supabase)
 
+
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
@@ -7,6 +8,9 @@ CREATE TABLE IF NOT EXISTS users (
     role TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+-- Додаємо нове поле phone до users
+ALTER TABLE users ADD COLUMN IF NOT EXISTS phone TEXT;
 
 CREATE TABLE IF NOT EXISTS content (
     id SERIAL PRIMARY KEY,
@@ -43,3 +47,6 @@ CREATE TABLE IF NOT EXISTS api_tokens (
     refresh_token TEXT,
     expires_at TIMESTAMP
 );
+
+-- Додаємо нове поле phone до users
+ALTER TABLE users ADD COLUMN IF NOT EXISTS phone TEXT;
