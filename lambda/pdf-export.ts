@@ -1,4 +1,4 @@
 // PDF/Word export Lambda
-export async function handler(event) {
+export async function handler(event: any) {
   // ...implementation...
 }

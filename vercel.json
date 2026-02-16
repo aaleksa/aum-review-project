@@ -1,7 +1,6 @@
 {
   "functions": {
-    "backend/**/*.ts": {
-      "runtime": "nodejs18.x",
+    "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10
     }
