@@ -1,7 +1,7 @@
 {
   "functions": {
     "backend/**/*.ts": {
-      "runtime": "nodejs@18",
+      "runtime": "vercel-node@1.8.0",
       "memory": 1024,
       "maxDuration": 10
     }
