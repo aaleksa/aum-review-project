@@ -4,5 +4,14 @@
       "memory": 1024,
       "maxDuration": 10
     }
-  }
+  },
+  "projects": [
+    {
+      "src": "clerk-react/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "clerk-react/dist"
+      }
+    }
+  ]
 }
