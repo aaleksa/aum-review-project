@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,17 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <header>
+        {/* Show the sign-in and sign-up buttons when the user is signed out */}
+        <SignedOut>
+          <SignInButton />
+          <SignUpButton />
+        </SignedOut>
+        {/* Show the user button when the user is signed in */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </header>
     </>
   )
 }
